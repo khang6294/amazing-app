@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {Input, Icon} from 'antd'
-import {accToken} from '../../accToken'
+import {accToken} from '../../../accToken'
 
 const AccessToken = (props) => {
     const [tokenInput, setTokenInput] = useState(accToken)

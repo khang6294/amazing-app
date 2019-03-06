@@ -1,23 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
-import AccessToken from './components/AccessToken/AccessToken'
-import DatePick from './components/DatePick/DatePick'
+import DataInput from './components/DataInput/DataInput'
 import SummaryList from './components/Summary/SummaryList'
-import Table from './components/DetailTable/DetailTable'
 import DetailTable from './components/DetailTable/DetailTable';
-class App extends Component {
-	render() {
-		return (
+const App = () => {
+	const [dataInp, setDataInp] = useState({})
+	const receiveData = (data) => {
+		setDataInp(data)
+	}
+
+	return (
 		<div className="App">
 			<NavBar/>
-			<DatePick/>
-			<AccessToken/>
-			<SummaryList/>
-			<DetailTable/>
+			<DataInput
+				onFetchData = {receiveData}
+			/>
+			<SummaryList
+				data = {dataInp}
+			/>
+			<DetailTable
+				data = {dataInp.by_date}
+			/>
 		</div>
-		);
-	}
+	);
 }
 
 export default App;

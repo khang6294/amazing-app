@@ -1,1 +1,7 @@
+.App {
+    display: grid;
+    grid-template-areas: 
+        ''
+}
+
 
