@@ -10,15 +10,16 @@ const DatePick = (props) => {
         props.onDateChange(dateStrings)
     }
     return (
-        <>
-            <label className="data-input__label">Date Range:</label>
+        <div>
+            <div className="data-input__label">Date Range:</div>
             <RangePicker
                 ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}
                 defaultValue={[moment('2017-05-01', "YYYY-MM-DD"), moment('2017-05-10', "YYYY-MM-DD")]}
                 format="YYYY-MM-DD"
                 onChange = {onDateChange}
+                className="data-input__date-inp"
             />
-        </>
+        </div>
     )
 }
 

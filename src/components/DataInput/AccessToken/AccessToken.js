@@ -9,14 +9,15 @@ const AccessToken = (props) => {
         props.onTokenChange(newToken)
     }
     return (
-        <>
-            <label className="data-input__label">Access Token:</label>
+        <div>
+            <div className="data-input__label">Access Token:</div>
             <Input.Password
                 addonBefore={<Icon type="user" />}
                 onChange={onTokenChange}
                 value={tokenInput}
+                className='data-input__token-inp'
             />
-        </>
+        </div>
     )
 }
 

@@ -1,6 +1,46 @@
+
+.dataInput__container{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 20rem;
+    background-color: #FFFFFF;	
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 3px;	
+    padding-top:1rem;
+}
+
 .data-input__label{
     font-size: 1.3rem;
     font-weight:bold;
     color: #4A4A4A;
-    display:inline-block
+}
+
+.data-input__fetch-btn{
+    border-radius: 3px;	
+    background-color: #007CBB;	
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+    width: 8rem;
+    height: 3rem;
+    align-self: center;
+}
+
+.data-input__token-inp{
+    width: 95%;
+}
+
+.data-input__date-inp{
+    width: 95%;
+}
+
+@media only screen and (max-width: 970px){
+    .dataInput__container{
+        height: 100%
+    }
+    .data-input__token-inp{
+        width: 18rem;
+    }
+    .data-input__date-inp{
+        width: 18rem;
+    }
 }

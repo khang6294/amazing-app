@@ -8,9 +8,10 @@ import DetailTable from './components/DetailTable/DetailTable';
 import axios from 'axios'
 import {notification} from 'antd'
 
-const App = (props) => {
+const App = () => {
 	const [dataRes, setDataRes] = useState({})
 	const [loading,setLoading] = useState(false)
+
 	const onFetchData = (data) => {
 		const {tokenInput,dateInput} = data
 		setLoading(true)
@@ -36,10 +37,15 @@ const App = (props) => {
 		<>
 		<div className="background"></div>
 		<div className="App">
-			<NavBar/>
-			<DataInput
-				onFetchData = {onFetchData}
-			/>
+			<div className="navbar">
+				<NavBar/>
+			</div>
+			<div className="sider">
+				<DataInput
+					onFetchData = {onFetchData}
+					loading={loading}
+				/>
+			</div>
 			<div className="content">
 				<SummaryList
 					data = {dataRes}

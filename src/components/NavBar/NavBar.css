@@ -1,0 +1,22 @@
+.navBar__logo{
+    margin: 0.5em;
+    color: #FFFFFF;	
+    font-size: 2rem;	
+    font-weight: bold;	
+    line-height: 2rem;
+}
+
+.navBar__container{
+    background: radial-gradient(circle, #2C2C2C 0%, #191919 100%);;
+    position: fixed;
+    width:100%;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    z-index: 60;
+}

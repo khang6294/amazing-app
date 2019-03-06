@@ -1,3 +1,10 @@
+.summaryList__container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap
+
+}
+
 .summaryCard__card{
     width: 15.6rem;
     height: 15.6rem;
@@ -20,4 +27,19 @@
     font-size: 1rem;	
     line-height: 1.1rem;	
     text-align: center;
+}
+
+@media only screen and (max-width: 970px){
+    .summaryCard__card{
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .summaryCard__card-title{       
+        font-size: 2.8rem;	
+    }
+    
+    .summaryCard__card-description{
+        font-size: 1rem;
+    }
 }
