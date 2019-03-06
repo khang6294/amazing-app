@@ -1,7 +1,65 @@
-.App {
-    display: grid;
-    grid-template-areas: 
-        ''
+
+* {
+    box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
+body {
+    height: 100%;
+
+}
+
+.background {
+    background: #f4f4f4;
+    filter: grayscale(40%);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    /* filter: grayscale(40%);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background: linear-gradient(172.25deg, rgba(0,0,0,0.63) 0%, rgba(0,0,0,0.25) 100%); */
+}
+
+.App {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+            'navbar navbar'
+            'sider content'
+}
+
+.navbar {
+    grid-area: navbar;
+    background: radial-gradient(circle, #2C2C2C 0%, #191919 100%);;
+    position: fixed;
+    width:100%;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    z-index: 60;
+}
+
+.content{
+    grid-area: content;
+    padding: 1rem;
+}
+
+.sider{
+    grid-area: sider;
+    padding: 1rem;
+}
 
