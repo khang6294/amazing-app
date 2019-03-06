@@ -26,13 +26,27 @@ const DetailTable = (props) => {
         },
     ]
 
-    const data = [
-        {
-
+    const dataFormat = props.data ? props.data.map(ele => {
+        return {
+            conversation_count: ele.conversation_count,
+            missed_chat_count: ele.missed_chat_count,
+            visitors_with_conversation_count: ele.visitors_with_conversation_count,
+            date: ele.date,
+            key: ele.date
         }
-    ]
+    }) : null
 
-    return <Table columns={columns} dataSource={data} />
+    return (
+        <Table 
+            columns={columns} 
+            dataSource={dataFormat}
+            pagination={{
+                pageSize: 5,
+                hideOnSinglePage: true,
+                showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} dates`,
+            }}
+        />
+    )
 }
 
 export default React.memo(DetailTable)
