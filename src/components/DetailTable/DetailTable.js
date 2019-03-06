@@ -1,8 +1,9 @@
 import React from 'react'
-import { Table} from 'antd';
+import { Table, Spin, Icon } from 'antd';
 
 
 const DetailTable = (props) => {
+    const {loading} = props
     const columns = [
         {
             title:'conversation_count',
@@ -44,6 +45,16 @@ const DetailTable = (props) => {
                 pageSize: 5,
                 hideOnSinglePage: true,
                 showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} dates`,
+                
+                
+            }}
+            locale = {{    
+                emptyText:'Click Fetch button for data'
+            }}
+            loading = {{
+                indicator: <Spin indicator={<Icon type="loading" spin />}/>,
+                spinning: loading,
+                size: 'large'
             }}
         />
     )

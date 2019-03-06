@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
 import './App.css';
+
 import NavBar from './components/NavBar/NavBar'
 import DataInput from './components/DataInput/DataInput'
 import SummaryList from './components/Summary/SummaryList'
 import DetailTable from './components/DetailTable/DetailTable';
 import axios from 'axios'
-import {accToken} from './accToken'
+import {notification} from 'antd'
 
 const App = (props) => {
-	const [dataInp, setDataInp] = useState({})
-
+	const [dataRes, setDataRes] = useState({})
+	const [loading,setLoading] = useState(false)
 	const onFetchData = (data) => {
 		const {tokenInput,dateInput} = data
+		setLoading(true)
 		axios.get(`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${dateInput[0]}&end_date=${dateInput[1]}`
-            , { headers: {"Authorization" : `Token ${accToken}`} })
+            , { headers: {"Authorization" : `Token ${tokenInput}`} })
             .then(res => {
-                const data = res.data
-                setDataInp(data)
-            })
+				const data = res.data
+				setLoading(false)
+                setDataRes(data)
+			})
+			.catch(err => {
+				if (err.response.status === 401) {
+					notification.error({
+						message: 'Error',
+						description: 'Oops! Please check again your access token'
+					});
+				}
+				setLoading(false)
+			})
 	}
 
 	return (
@@ -30,11 +42,13 @@ const App = (props) => {
 			/>
 			<div className="content">
 				<SummaryList
-					data = {dataInp}
+					data = {dataRes}
+					loading = {loading}
 				/>
 				<br/>
 				<DetailTable
-					data = {dataInp.by_date}
+					data = {dataRes.by_date}
+					loading = {loading}
 				/>
 			</div>
 		</div>

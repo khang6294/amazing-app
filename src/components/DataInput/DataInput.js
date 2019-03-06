@@ -29,11 +29,13 @@ const DataInput = (props) => {
             <AccessToken
                 onTokenChange = {onTokenChange}
             />
+            <br/>
             <Button
                 onClick = {handleFetchData}
+                disabled = {dateInput.length < 0 || tokenInput === ''}
             >
                 Get data
-            </Button>
+            </Button>      
         </div>
     )
 }

@@ -1,24 +1,22 @@
 import React,{useState} from 'react'
 import {Input, Icon} from 'antd'
-import {accToken} from '../../../accToken'
 
 const AccessToken = (props) => {
-    const [tokenInput, setTokenInput] = useState(accToken)
+    const [tokenInput, setTokenInput] = useState('')
     const onTokenChange = (event) => {
         const newToken = event.target.value
         setTokenInput(newToken)
         props.onTokenChange(newToken)
     }
     return (
-        <div>
-            <div className="data-input__label">Access Token:</div>
-            <Input
-                type="password"
+        <>
+            <label className="data-input__label">Access Token:</label>
+            <Input.Password
                 addonBefore={<Icon type="user" />}
                 onChange={onTokenChange}
                 value={tokenInput}
             />
-        </div>
+        </>
     )
 }
 
