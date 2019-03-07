@@ -126,11 +126,11 @@ const ChartData = (props) => {
             {data ? 
             <>  
                 <div className="chartData__chart-container">
-                    <div className="chartData__chart-header">Summary Information Graph</div>
+                    <div className="chartData__chart-header">Summary Information Chart</div>
                     <Pie data={summaryDataDisplay} width={600} height={500} options={summaryOptions}/>       
                 </div>
                 <div className="chartData__chart-container">
-                    <div className="chartData__chart-header">By Date Information Graph</div>
+                    <div className="chartData__chart-header">By Date Information Chart</div>
                     <Line data={byDateDataDisplay} width={700} height={500} options={byDateOptions}/>
                 </div>
             </> :

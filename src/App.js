@@ -15,11 +15,11 @@ const App = () => {
 	const onFetchData = (data) => {
 		const {tokenInput,dateInput} = data
 		setLoading(true)
+		setDataRes(null)
 		axios.get(`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${dateInput[0]}&end_date=${dateInput[1]}`
             , { headers: {"Authorization" : `Token ${tokenInput}`} })
             .then(res => {
 				const data = res.data
-				console.log(data)
 				setLoading(false)
 				setDataRes(data)
 				// Store in local storage for each fetch
@@ -56,12 +56,12 @@ const App = () => {
 					data = {dataRes}
 					loading = {loading}
 				/>
-				<Divider/>
+				<Divider className="App__section-divider"/>
 				<DetailTable
 					data = {dataRes ? dataRes.by_date : null}
 					loading = {loading}
 				/>
-				<Divider/>
+				<Divider className="App__section-divider"/>
 				<ChartData
 					data = {dataRes}
 					loading = {loading}
