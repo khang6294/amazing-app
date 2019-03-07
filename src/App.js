@@ -6,7 +6,7 @@ import SummaryList from './components/Summary/SummaryList'
 import DetailTable from './components/DetailTable/DetailTable';
 import ChartData from './components/ChartData/ChartData'
 import axios from 'axios'
-import {notification,Divider,BackTop} from 'antd'
+import {notification,Divider,BackTop,message} from 'antd'
 
 const App = () => {
 	const [dataRes, setDataRes] = useState(null)
@@ -22,6 +22,7 @@ const App = () => {
 				const data = res.data
 				setLoading(false)
 				setDataRes(data)
+				message.success('Fetch successfully!',1.5);
 				// Store in local storage for each fetch
 				localStorage.setItem('token', tokenInput);
                 localStorage.setItem('startDate', dateInput[0]);
