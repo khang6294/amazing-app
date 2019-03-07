@@ -1,33 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import {Line,Pie} from 'react-chartjs-2'
-import {Icon, Spin} from 'antd'
 import './ChartData.css'
 const ChartData = (props) => {
-    //Subscribe to window width size
-    const [width, setWidth] = useState(window.innerWidth);
-    const [height, setHeight] = useState(window.innerHeight)
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(window.innerWidth);
-            setHeight(window.innerHeight)
-        }
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    });
-
-    //Responsive chart width and height
-    let chartWidth;
-    let chartHeight;
-
-    if(width < 640){
-        chartWidth = width * 0.9
-        chartHeight = height * 0.5
-    } else {
-        chartWidth = 700
-        chartHeight = 500
-    }
 
     const {data} = props
     //
@@ -135,16 +109,16 @@ const ChartData = (props) => {
     };
 
     const byDateOptions = {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: true,
         tooltips: {
             mode: 'label'
         }, 
     };
 
     const summaryOptions = {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: true,
     }
     return (
         <div className={data ? "chartData___container-data" : "chartData___container-no-data"}>
@@ -153,11 +127,11 @@ const ChartData = (props) => {
             <>  
                 <div className="chartData__chart-container">
                     <div className="chartData__chart-header">Summary Information Chart</div>
-                    <Pie data={summaryDataDisplay} width={chartWidth} height = {chartHeight} options={summaryOptions}/>       
+                    <Pie data={summaryDataDisplay} options={summaryOptions}/>       
                 </div>
                 <div className="chartData__chart-container">
                     <div className="chartData__chart-header">By Date Information Chart</div>
-                    <Line data={byDateDataDisplay} width={chartWidth} height = {chartHeight} options={byDateOptions}/>
+                    <Line data={byDateDataDisplay} options={byDateOptions}/>
                 </div>
             </> :
             <div className="chartData__description">Click FETCH for data.</div>
