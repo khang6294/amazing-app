@@ -6,7 +6,7 @@ import SummaryList from './components/Summary/SummaryList'
 import DetailTable from './components/DetailTable/DetailTable';
 import ChartData from './components/ChartData/ChartData'
 import axios from 'axios'
-import {notification,Divider} from 'antd'
+import {notification,Divider,BackTop} from 'antd'
 
 const App = () => {
 	const [dataRes, setDataRes] = useState(null)
@@ -42,6 +42,9 @@ const App = () => {
 		<>
 		<div className="background"></div>
 		<div className="App">
+			<BackTop 
+				visibilityHeight={500} 
+			/>
 			<div className="navbar">
 				<NavBar/>
 			</div>
