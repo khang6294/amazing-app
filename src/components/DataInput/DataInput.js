@@ -28,7 +28,8 @@ const DataInput = (props) => {
 
     const {loading} = props
     const today = new Date();
-    const handleFetchData = () => {
+    const handleFetchData = (e) => {
+        e.preventDefault()
         props.onFetchData({
             dateInput: dateInput,
             tokenInput: tokenInput
@@ -46,36 +47,46 @@ const DataInput = (props) => {
 
     return(
         <div className="dataInput__container">
-            <div>
-            <div className="data-input__label">Date Range:</div>
-                <RangePicker
-                    ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}
-                    value={[moment(dateInput[0] ? dateInput[0]: today, "YYYY-MM-DD"), moment(dateInput[1] ? dateInput[1] : today, "YYYY-MM-DD")]}
-                    format="YYYY-MM-DD"
-                    onChange = {onDateChange}
-                    className="data-input__date-inp"
-                    separator = '-'
-                />
-            </div>
-            <div>
-            <div className="data-input__label">Access Token:</div>
-                <Input.Password
-                    addonBefore={<Icon type="user" />}
-                    onChange={onTokenChange}
-                    value={tokenInput}
-                    className='data-input__token-inp'
-                />
-            </div>
-            <br/>
-            <Button
-                onClick = {handleFetchData}
-                disabled = { (dateInput[0] === "" && dateInput[1] === "" && tokenInput === '') || loading}
-                size='large'
-                className='data-input__fetch-btn'
-            >
-                FETCH
-            </Button>      
+            <form onSubmit={handleFetchData}>
+                <div>
+                <label className="data-input__label">Date Range:
+                    <div>
+                        <RangePicker
+                            ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}
+                            value={[moment(dateInput[0] ? dateInput[0]: today, "YYYY-MM-DD"), moment(dateInput[1] ? dateInput[1] : today, "YYYY-MM-DD")]}
+                            format="YYYY-MM-DD"
+                            onChange = {onDateChange}
+                            className="data-input__date-inp"
+                            separator = '-'
+                        />
+                    </div>
+                </label>
+                </div>
+                <div>  
+                <label className="data-input__label">Access Token:
+                    <div>
+                        <Input.Password
+                            addonBefore={<Icon type="user" />}
+                            onChange={onTokenChange}
+                            value={tokenInput}
+                            className='data-input__token-inp'
+                        />
+                    </div>
+                </label>
+                </div>
+                
+                <br/>
+                <Button
+                    onClick = {handleFetchData}
+                    disabled = { (dateInput[0] === "" && dateInput[1] === "" && tokenInput === '') || loading}
+                    size='large'
+                    className='data-input__fetch-btn'
+                >
+                    FETCH
+                </Button>   
+            </form>   
         </div>
+        
     )
 }
 
