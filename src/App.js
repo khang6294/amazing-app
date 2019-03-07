@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-
 import NavBar from './components/NavBar/NavBar'
 import DataInput from './components/DataInput/DataInput'
 import SummaryList from './components/Summary/SummaryList'
@@ -20,7 +19,11 @@ const App = () => {
             .then(res => {
 				const data = res.data
 				setLoading(false)
-                setDataRes(data)
+				setDataRes(data)
+				// Store in local storage for each fetch
+				localStorage.setItem('token', tokenInput);
+                localStorage.setItem('startDate', dateInput[0]);
+                localStorage.setItem('endDate', dateInput[1]);
 			})
 			.catch(err => {
 				if (err.response.status === 401) {
