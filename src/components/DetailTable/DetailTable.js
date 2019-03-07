@@ -69,6 +69,7 @@ const DetailTable = (props) => {
                     spinning: loading,
                     size: 'large'
                 }}
+                scroll = {{x:true}}
             />
         </div>
     )

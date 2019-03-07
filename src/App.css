@@ -46,21 +46,6 @@ body {
 }
 
 
-@media only screen and (max-width: 970px){
-    .App {
-        grid-template-columns: auto;
-        grid-template-rows: 70px 250px auto;
-        grid-template-areas:
-                'navbar'
-                'sider'
-                'content'
-    }
-
-    .sider{
-        width: 100%;
-    }
-}
-
 /* shared style */
 
 .section__header{
@@ -72,4 +57,30 @@ body {
 
 .App__section-divider{
     background:#e0dede;
+}
+
+.ant-table td { white-space: nowrap; }
+
+
+
+@media only screen and (max-width: 970px){
+    .App {
+        grid-template-columns: 100%;
+        grid-template-rows: 70px 250px auto;
+        grid-template-areas:
+                'navbar'
+                'sider'
+                'content'
+    }
+
+    .sider{
+        width: 100%;
+    }
+
+    .section__header{
+        color: #000000;	
+        font-size: 1.8rem;	
+        font-weight: bold;
+        padding-top: 1rem;
+    }
 }
