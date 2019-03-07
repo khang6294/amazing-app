@@ -4,11 +4,12 @@ import NavBar from './components/NavBar/NavBar'
 import DataInput from './components/DataInput/DataInput'
 import SummaryList from './components/Summary/SummaryList'
 import DetailTable from './components/DetailTable/DetailTable';
+import ChartData from './components/ChartData/ChartData'
 import axios from 'axios'
-import {notification} from 'antd'
+import {notification,Divider} from 'antd'
 
 const App = () => {
-	const [dataRes, setDataRes] = useState({})
+	const [dataRes, setDataRes] = useState(null)
 	const [loading,setLoading] = useState(false)
 
 	const onFetchData = (data) => {
@@ -18,6 +19,7 @@ const App = () => {
             , { headers: {"Authorization" : `Token ${tokenInput}`} })
             .then(res => {
 				const data = res.data
+				console.log(data)
 				setLoading(false)
 				setDataRes(data)
 				// Store in local storage for each fetch
@@ -54,9 +56,14 @@ const App = () => {
 					data = {dataRes}
 					loading = {loading}
 				/>
-				<br/>
+				<Divider/>
 				<DetailTable
-					data = {dataRes.by_date}
+					data = {dataRes ? dataRes.by_date : null}
+					loading = {loading}
+				/>
+				<Divider/>
+				<ChartData
+					data = {dataRes}
 					loading = {loading}
 				/>
 			</div>

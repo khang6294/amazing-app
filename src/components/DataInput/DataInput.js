@@ -73,7 +73,7 @@ const DataInput = (props) => {
                 size='large'
                 className='data-input__fetch-btn'
             >
-                Fetch
+                FETCH
             </Button>      
         </div>
     )

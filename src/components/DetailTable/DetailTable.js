@@ -3,7 +3,7 @@ import { Table, Spin, Icon } from 'antd';
 
 
 const DetailTable = (props) => {
-    const {loading} = props
+    const {loading,data} = props
     const columns = [
         {
             title:'conversation_count',
@@ -27,7 +27,7 @@ const DetailTable = (props) => {
         },
     ]
 
-    const dataFormat = props.data ? props.data.map(ele => {
+    const dataFormat = data ? data.map(ele => {
         return {
             conversation_count: ele.conversation_count,
             missed_chat_count: ele.missed_chat_count,
@@ -36,6 +36,11 @@ const DetailTable = (props) => {
             key: ele.date
         }
     }) : null
+
+    // let dataFormatSort;
+    // if(dataFormat){
+    //     dataFormatSort = dataFormat.sort((a,b) => {return a.date>b.date ? 1 : a.date<b.date ? -1 : 0})
+    // }
 
     return (
         <Table 
@@ -49,7 +54,7 @@ const DetailTable = (props) => {
                 
             }}
             locale = {{    
-                emptyText:'Click Fetch button for data'
+                emptyText:'Click FETCH for data.'
             }}
             loading = {{
                 indicator: <Spin indicator={<Icon type="loading" spin />}/>,

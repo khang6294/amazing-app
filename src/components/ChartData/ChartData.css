@@ -1,0 +1,32 @@
+.chartData___container-data{
+    width: 100%;
+    height:100%;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.chartData___container-no-data{
+    width: 100%;
+    height: 10rem;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.chartData__description{
+    font-size: 1.2rem;
+}
+
+.chartData__chart-header{
+    font-size: 1.3rem;
+    font-weight: 650
+}
+
+.chartData__chart-container{
+    padding-top: 2rem;
+}
