@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { DatePicker, Input, Icon, Button } from 'antd';
 import moment from 'moment';
+import History from './History'
 import "./DataInput.css"
 const RangePicker = DatePicker.RangePicker;
 
@@ -22,11 +23,12 @@ const DataInput = (props) => {
             setDateInput([today,today])
         }
         // set Token from localStorage
-        setTokenInput(token)
+        if(token){
+            setTokenInput(token)
+        }
 	},[])
 
-
-    const {loading} = props
+    const {loading,history} = props
     const today = new Date();
     const handleFetchData = (e) => {
         e.preventDefault()
@@ -43,6 +45,11 @@ const DataInput = (props) => {
     const onTokenChange = (event) => {
         const newTokenInput = event.target.value
         setTokenInput(newTokenInput)
+    }
+
+    const populateHistory = (selectedHistory) => {
+        setDateInput(selectedHistory.dateInput)
+        setTokenInput(selectedHistory.tokenInput)
     }
 
     return(
@@ -77,13 +84,22 @@ const DataInput = (props) => {
                 <br/>
                 <Button
                     onClick = {handleFetchData}
-                    disabled = { (dateInput[0] === "" && dateInput[1] === "" && tokenInput === '') || loading}
+                    disabled = { tokenInput === '' || loading}
                     size='large'
                     className='data-input__fetch-btn'
                 >
                     FETCH
                 </Button>   
-            </form>   
+            </form>
+            <div>
+                <History
+                    populateHistory = {(selectedHistory) => {
+                        props.populateHistory(selectedHistory)
+                        populateHistory(selectedHistory)
+                    }}
+                    history={history}        
+                />
+            </div>   
         </div>
         
     )

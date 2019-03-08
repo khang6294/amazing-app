@@ -36,7 +36,7 @@
 
 @media only screen and (max-width: 970px){
     .dataInput__container{
-        height: 14rem;
+        height: 15.3rem;
         width:100%;
         position: relative;
     }
@@ -54,3 +54,35 @@
         height: 2.5rem;
     }
 }
+
+/* History.js */
+
+.history__selection-container{
+    border:1px solid;
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    background: darkgrey;
+    color: white;
+}
+
+.history__normal-container{
+    border:1px solid;
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 1rem;
+}
+
+.history__selection-container:hover{
+    cursor: pointer;
+}
+
+.history__normal-container:hover{
+    cursor: pointer;
+}
+
+.history__title{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+

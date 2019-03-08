@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import DataInput from './components/DataInput/DataInput'
@@ -7,10 +7,20 @@ import DetailTable from './components/DetailTable/DetailTable';
 import ChartData from './components/ChartData/ChartData'
 import axios from 'axios'
 import {notification,Divider,BackTop,message} from 'antd'
+import moment from 'moment'
 
 const App = () => {
+	const [history,setHistory] = useState([])
 	const [dataRes, setDataRes] = useState(null)
 	const [loading,setLoading] = useState(false)
+
+	//Fetch history fetch from localStorage, same as componentDidMount
+	useEffect(() => {
+		const historyFromLC = localStorage.getItem('history')
+		if(historyFromLC){
+			setHistory(JSON.parse(historyFromLC))
+		}
+	},[])
 
 	const onFetchData = (data) => {
 		const {tokenInput,dateInput} = data
@@ -24,8 +34,19 @@ const App = () => {
 				const data = res.data
 				setLoading(false)
 				setDataRes(data)
+				// Set history object for storing
+				const historyObj = {
+					timeFetch: moment().format('YYYY-MM-DD, hh:mm:ss a'),
+					startDate: startDate,
+					endDate: endDate,
+					token: tokenInput
+				}
+				const historyClone = [...history]
+				historyClone.push(historyObj)
+				setHistory(historyClone)
 				message.success('Fetch successfully!',1.5);
 				// Store in local storage for each fetch
+				localStorage.setItem('history',JSON.stringify(historyClone))
 				localStorage.setItem('token', tokenInput);
                 localStorage.setItem('startDate', dateInput[0]);
                 localStorage.setItem('endDate', dateInput[1]);
@@ -54,6 +75,8 @@ const App = () => {
 			<div className="sider">
 				<DataInput
 					onFetchData = {onFetchData}
+					populateHistory = {onFetchData}
+					history ={history}
 					loading={loading}
 				/>
 			</div>
