@@ -36,7 +36,6 @@ const History = (props) => {
                 size='large'
                 className='data-input__fetch-btn' 
                 onClick={showModal}
-                okText="FETCH"
             >
                 HISTORY
             </Button>
@@ -47,6 +46,7 @@ const History = (props) => {
                 onCancel={handleCancel}
                 bodyStyle={{maxHeight:'20rem',overflowY:'scroll'}}
                 width={650}
+                okText="FETCH"
             >
                 {history.length > 0 ?
                     history.map(historyElement => {
