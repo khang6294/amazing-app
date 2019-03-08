@@ -65,6 +65,10 @@
         width: 6.5rem;
         height: 2.5rem;
     }
+    .data-input__history-btn{
+        width: 6.5rem;
+        height: 2.5rem;
+    }
 }
 
 /* History.js */
