@@ -13,7 +13,7 @@ const History = (props) => {
     }
 
     const handleOk = () => {
-        if(!selectedHistory.dateInput && !selectHistory.tokenInput &&!selectedHistory.timeFetch){
+        if(!selectedHistory.dateInput && !selectedHistory.tokenInput &&!selectedHistory.timeFetch){
             setVisible(false)
         } else {
             setVisible(false)
