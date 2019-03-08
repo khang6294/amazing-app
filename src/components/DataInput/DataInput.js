@@ -74,7 +74,6 @@ const DataInput = (props) => {
                     </div>
                 </label>
                 </div>
-                
                 <br/>
                 <Button
                     onClick = {handleFetchData}
