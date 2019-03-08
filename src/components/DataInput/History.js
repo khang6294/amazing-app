@@ -38,7 +38,7 @@ const History = (props) => {
         <div>
             <Button 
                 size='large'
-                className='data-input__fetch-btn' 
+                className='data-input__history-btn' 
                 onClick={showModal}
             >
                 HISTORY
