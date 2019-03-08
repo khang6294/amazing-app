@@ -2,7 +2,7 @@
 
 ## How it works
 
-The application is designed for all devices and mobile-friendly. It helps user get the report from API with appropriate access token and display with nice and easy-to-use UI. Users can view the report data by big cards, table and charts. The table is fully controlled, so users can sort, filter for desired information. The application can store user input after each taime fetching, it will populate if user comes back to app later time.
+The application is designed for all devices and mobile-friendly. It helps user get the report from API with appropriate access token and display with nice and easy-to-use UI. Users can view the report data by big cards, table and charts. The table is fully controlled, so users can sort, filter for desired information. The application can store user input after each time fetching, it will populate if user comes back to app later time.
 
 ## Technology Stack
 
