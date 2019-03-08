@@ -10,10 +10,10 @@ const SummaryCard = (props) => {
         >   
         {   
             loading ?
-            <Spin indicator={<Icon type="loading" style={{ fontSize: 48 }} spin />}/> : 
+            <Spin indicator={<Icon type="loading" className="summaryCard__spin-indicator" spin />}/> : 
             <>
-            <div className="summaryCard__card-title">{title ? title : 0}</div>
-            <div className="summaryCard__card-description">{content}</div>
+                <div className="summaryCard__card-title">{title ? title : 0}</div>
+                <div className="summaryCard__card-description">{content}</div>
             </>
         }
         </Card>

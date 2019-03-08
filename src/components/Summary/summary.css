@@ -30,6 +30,14 @@
     text-align: center;
 }
 
+.summaryCard__spin-indicator{
+    font-size: 4rem;
+    margin: auto;
+    padding-right: 4rem;
+    padding-top: 1.5rem;
+}
+
+
 @media only screen and (max-width: 970px){
     .summaryCard__card{
         width: 12rem;
