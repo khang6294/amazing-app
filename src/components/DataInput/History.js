@@ -13,8 +13,12 @@ const History = (props) => {
     }
 
     const handleOk = () => {
-        setVisible(false)
-        props.populateHistory(selectedHistory)
+        if(!selectedHistory.dateInput && !selectHistory.tokenInput &&!selectedHistory.timeFetch){
+            setVisible(false)
+        } else {
+            setVisible(false)
+            props.populateHistory(selectedHistory)
+        }
     }
 
     const handleCancel = () => {
