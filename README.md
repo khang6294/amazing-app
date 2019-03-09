@@ -4,6 +4,10 @@
 
 The application is designed for all devices and mobile-friendly. It helps user get the report from API with appropriate access token and display with nice and easy-to-use UI. Users can view the report data by big cards, table and charts. The table is fully controlled, so users can sort, filter for desired information. The application can store user input after each time fetching, it will populate if user comes back to app later time. Finally, it will store the list of fetching times as history, user can access it and fetch again.
 
+## Component Structure
+
+![alt text](https://github.com/khang6294/amazing-app/blob/master/Component%20Structure.png)
+
 ## Technology Stack
 
 - Chart: React-chart-js2
